@@ -1,0 +1,11 @@
+{
+  "desc": "Example 2",
+  "status": 201,
+  "method": "GET",
+  "delay": 3000,
+  "path": "",
+  "json": {
+    "message": "Hello example 2",
+    "help": ["You can create multiple mock responses", "And switch on CLI"]
+  }
+}

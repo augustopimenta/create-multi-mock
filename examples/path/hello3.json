@@ -1,0 +1,14 @@
+{
+  "desc": "Example 3",
+  "status": 200,
+  "method": "GET",
+  "delay": 3000,
+  "path": "other-example",
+  "json": {
+    "message": "Hello example 3",
+    "help": [
+      "We going to respect the directory path",
+      "For create new endpoints"
+    ]
+  }
+}

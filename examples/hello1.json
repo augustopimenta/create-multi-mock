@@ -1,0 +1,10 @@
+{
+  "desc": "Example 1",
+  "status": 200,
+  "method": "GET",
+  "path": "",
+  "json": {
+    "message": "Hello example 1",
+    "help": "You can change HTTP methods, status, body and much more by change this endpoint JSON files"
+  }
+}

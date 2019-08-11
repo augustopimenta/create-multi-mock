@@ -3,12 +3,16 @@ const fs = require("fs-extra");
 const os = require("os");
 const spawn = require("cross-spawn");
 
-async function generate(appPath, options) {
+async function generate(appPath, { empty }) {
   const appName = path.basename(appPath);
 
   console.log(`Generating ${appName} project...`);
 
   fs.ensureDirSync(appPath);
+
+  const gitIgnore = "node_modules/\n";
+
+  fs.writeFileSync(path.join(appPath, ".gitignore"), gitIgnore + os.EOL);
 
   const packageJson = {
     name: appName,
@@ -43,6 +47,23 @@ async function generate(appPath, options) {
     );
   } catch (e) {
     console.error("Sorry couldn't install dependencies!");
+  }
+
+  if (!empty) {
+    console.log("Creating examples...");
+
+    const helpFiles = ["hello1.json", "hello2.json", "path/hello3.json"];
+
+    helpFiles.forEach(file => {
+      const filePath = path.join(endpointsPath, file);
+
+      fs.ensureDirSync(path.dirname(filePath));
+
+      fs.writeFileSync(
+        path.join(endpointsPath, file),
+        JSON.stringify(require(`./examples/${file}`), null, 2) + os.EOL
+      );
+    });
   }
 
   console.log("Finishing...");
