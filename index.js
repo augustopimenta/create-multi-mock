@@ -6,7 +6,7 @@ const spawn = require("cross-spawn");
 async function generate(appPath, { empty }) {
   const appName = path.basename(appPath);
 
-  console.log(`Generating ${appName} project...`);
+  console.log(`Generating ${appName} project`);
 
   fs.ensureDirSync(appPath);
 
@@ -20,9 +20,6 @@ async function generate(appPath, { empty }) {
     private: true,
     scripts: {
       start: "multi-mock"
-    },
-    bin: {
-      [appName]: "multi-mock"
     }
   };
 
@@ -50,7 +47,7 @@ async function generate(appPath, { empty }) {
   }
 
   if (!empty) {
-    console.log("Creating examples...");
+    console.log("Creating examples");
 
     const helpFiles = ["hello1.json", "hello2.json", "path/hello3.json"];
 
@@ -67,6 +64,13 @@ async function generate(appPath, { empty }) {
   }
 
   console.log("Finishing...");
+  console.log();
+  console.log("Everything is done!");
+  console.log();
+  console.log(`cd ${appPath}`);
+  console.log("npm start");
+  console.log();
+  console.log("Happy mock! :)");
 }
 
 function runCommand(path, command, args) {
