@@ -1,0 +1,17 @@
+{
+  "name": "create-multi-mock",
+  "version": "0.1.0",
+  "description": "Create a new application with multi-mock",
+  "bin": {
+    "create-multi-mock": "cli.js"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^8.1.0",
+    "meow": "^5.0.0"
+  }
+}
